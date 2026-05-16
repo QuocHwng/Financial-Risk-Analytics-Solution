@@ -4,6 +4,7 @@ Dự án xây dựng hệ thống báo cáo Quản trị Rủi ro Tín dụng (C
 **Mục đích báo cáo:** Giám sát sức khỏe danh mục giải ngân và minh bạch hóa thuật toán phê duyệt tự động của hệ thống.
 
 Mô hình dữ liệu được thiết kế theo chuẩn **Star Schema (Lược đồ hình sao)** với mối quan hệ 1-Many, bao gồm 1 bảng Fact trung tâm và các bảng Dimension vệ tinh để tối ưu hóa hiệu suất truy vấn DAX.
+
 **1. Fact Table (Bảng Dữ liệu trung tâm)**
 * `Fact_LoanApplications` *(hoặc tên bảng fact của bạn)*: Đây là trái tim của mô hình, lưu trữ hơn 8,000 dòng dữ liệu lịch sử hồ sơ. Chứa các chỉ số định lượng (Metrics) và khóa ngoại (Foreign Keys)
 
@@ -12,10 +13,10 @@ Mô hình dữ liệu được thiết kế theo chuẩn **Star Schema (Lược 
 * `Dim_CreditProfile`: Bảng phân tích chuyên sâu về rủi ro tài chính của khách hàng (Điểm tín dụng, Điểm rủi ro, Tỉ lệ DTI, Lịch sử phá sản/Bùng nợ).
 * `Dim_LoanProduct`: Phân loại các mục đích giải ngân của khoản vay (Home, Auto, Debt Consolidation...).
 
-Mối quan hệ dữ liệu:
-Fact_LoanApplications -> Dim_Customer (Customer_ID)
-Fact_LoanApplications -> Dim_CreditProfile (CreditProfile_ID)
-Fact_LoanApplications -> Dim_LoanProduct (Product_ID)
+**Mối quan hệ dữ liệu:**
+* Fact_LoanApplications -> Dim_Customer (Customer_ID)
+* Fact_LoanApplications -> Dim_CreditProfile (CreditProfile_ID)
+* Fact_LoanApplications -> Dim_LoanProduct (Product_ID)
 
 Dashboard (Excutive Overview):
 <img width="1388" height="846" alt="image" src="https://github.com/user-attachments/assets/c8b236dd-bc92-4d11-9c4e-90dc4cdfe014" />
